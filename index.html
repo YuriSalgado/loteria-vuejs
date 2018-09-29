@@ -1,231 +1,163 @@
-<!doctype html>
-<!--
-  Material Design Lite
-  Copyright 2015 Google Inc. All rights reserved.
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      https://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License
--->
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Materialize CSS text only template</title>
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Materialize CSS">
-    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
-
-    <link rel="shortcut icon" href="images/favicon.png">
-
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/">
-    -->
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-    #view-source {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>LotoFácil - Materialize</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   </head>
-  <body class="mdl-demo">
-    <nav class="color-primary">
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Loto &amp; Fácil</a>
+  <body>
+    <nav class="purple lighten-3" role="navigation">
+      <div class="nav-wrapper container">
+        <img id="logo-container" class="brand-logo" src="https://image.winudf.com/v2/image/Y29tLmdkZXYuZmFjaWxfaWNvbl8xNTI0MjQ3MTQ0XzAwOA/icon.png?w=170&fakeurl=1&type=.png"/>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#">Contato</a></li>
+        </ul>
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="#">Contato</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       </div>
-    </nav>  
-    <div class="tab-bar  color-primary--dark">
-      <a href="#overview" class="layout__tab is-active">Visão Geral</a>
-      <a href="#features" class="layout__tab">Resultados</a>
-      <a href="#features" class="layout__tab">Meus Jogos</a>
-      <button class="btn-floating btn-large waves-effect waves-light red" id="add">
-        <i class="material-icons" role="presentation">add</i>
-        <span class="visuallyhidden">Add</span>
-      </button>
+    </nav>
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br><br>
+        <h1 class="header center purple-text">LotoFácil - Materialize</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">A forma mais rápida e segura de analisar suas chances.</h5>
+        </div>
+        <div class="row center">
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Analisar seu Jogo</a>
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Analisar Histórico</a>
+        </div>
+        <br><br>
+      </div>
     </div>
     <div class="container">
-      <main class="mdl-layout__content">
-        <div class="mdl-layout__tab-panel is-active" id="overview">
-          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-            <div class="card">
+      <div class="section">
+        <div id="sequence-page" class="row">
+          <div class="col s12 z-depth-6 card-panel">
+            <form class="login-form" id="sequence">
               <div class="row">
-                <div class="col s8">
-                  <div class="card-content">                  
-                    <h4 class="card-title">Novo Jogo</h4>
-                    <div class="row">
-                      <form class="col s12">
-                        <div class="row">
-                        <div class="input-field col s6">
-                          <i class="material-icons prefix">account_circle</i>
-                          <input id="icon_01" type="number" class="validate">
-                          <label for="icon_01">01</label>
-                        </div>
-                          <div class="input-field col s6">
-                          <i class="material-icons prefix">account_circle</i>
-                          <input id="icon_02" type="number" class="validate">
-                          <label for="icon_02">02</label>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="card-action">
-                    <a href="#" class="mdl-button">Adicionar</a>
-                  </div>
-                </div>              
-              </div>
-            </div>                
-          </section>
-          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-            <div class="row">
-              <div class="col">
-              <div class="card">
-                <div class="card-content">
-                  <h4 class="card-title">Ultimos<i class="material-icons right">carregar mais</i></h4>
-                  <div class="row">
-                    <div class="col s2 section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                      <div class="section__circle-container__circle color-primary--dark"></div>
-                    </div>
-                    <div class="col s10 section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                      <h5>Lorem ipsum dolor sit amet</h5>
-                      Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Duis nulla tempor do aute et eiusmod velit exercitation nostrud quis <a href="#">proident minim</a>.
-                    </div>                  
-                  </div>
-                  <div class="row">
-                    <div class="col s2 section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                      <div class="section__circle-container__circle color-primary--dark"></div>
-                    </div>
-                    <div class="col s10 section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                      <h5>Lorem ipsum dolor sit amet</h5>
-                      Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Duis nulla tempor do aute et eiusmod velit exercitation nostrud quis <a href="#">proident minim</a>.
-                    </div>                    
-                  </div>
-                  <div class="row">
-                    <div class="col s2 section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                      <div class="section__circle-container__circle color-primary--dark"></div>
-                    </div>
-                    <div class="col s10 section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                      <h5>Lorem ipsum dolor sit amet</h5>
-                      Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Duis nulla tempor do aute et eiusmod velit exercitation nostrud quis <a href="#">proident minim</a>.
-                    </div>                  
-                  </div>
-                </div>
-                <div class="card-action">
-                  <a href="#" class="mdl-button">Carregar Mais</a>
-                </div>
-              </div>                
-              </div>
-            </div>
-          </section>
-          <section class="section--footer mdl-color--white mdl-grid">
-            <div class="row">
-              <div class="col s12 m6 testimonials">
-                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle color-secondary section__circle--big"></div>
-                </div>
-                <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h5>Felipe Boso</h5>
-                  Qui sint ut et qui nisi cupidatat. Reprehenderit nostrud proident officia exercitation anim et pariatur ex.
+                <div class="input-field col s3" v-for="i in 15">
+                  <input id="number-" type="number">
+                  <label for="number-">Nº {{i}}</label>
                 </div>
               </div>
-              <div class="col s12 m6 testimonials">
-                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle color-secondary section__circle--big"></div>
+              <div class="row">
+                <div class="input-field col s12 m12 l12  login-text">
+                  <input type="checkbox" id="remember-me" />
+                  <label for="remember-me">Analisar sobre o histórico</label>
                 </div>
-                <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h5>Yuri Salgado</h5>
-                  Qui sint ut et qui nisi cupidatat. Reprehenderit nostrud proident officia exercitation anim et pariatur ex.
-                </div>                
               </div>
-            </div>
-          </section>
+              <div class="row">
+                <div class="input-field col s12">
+                  <a href="#" class="btn waves-effect waves-light col s12">Analisar</a>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-      </main>
+      </div>
+      <div class="section">
+        <div id="sequence-history" class="row">
+          <div class="col s12 z-depth-6 card-panel">
+            <table class="responsive-table" id="history">
+              <thead>
+                <tr>
+                  <th>Nº Jogo</th>
+                  <th>Data</th>
+                  <th v-for="i in 15">Nº {{i}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="i in 10">
+                <td>{{i}}</td>
+                <td>29/09/2018</td>
+                <td v-for="i in 15" v-bind:class="{ 'purple lighten-3': i % 2 == 0 }">{{i}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="row">
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2 class="center orange-text"><i class="material-icons">flash_on</i></h2>
+              <h5 class="center">Analise de Jogos</h5>
+              <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+            </div>
+          </div>
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2 class="center orange-text"><i class="material-icons">group</i></h2>
+              <h5 class="center">Analise de Histórico</h5>
+              <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+            </div>
+          </div>
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2 class="center orange-text"><i class="material-icons">settings</i></h2>
+              <h5 class="center">Fácil de Usar</h5>
+              <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
     </div>
-    <footer class="page-footer">
-      <div class="row">
-        <div class="col s3">
-          <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-          <h6 class="mdl-mega-footer--heading">Propaganda$</h6>
-          <ul class="mdl-mega-footer--link-list">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Partners</a></li>
-            <li><a href="#">Updates</a></li>
-          </ul>
-        </div>
-        <div class="col s3">
-          <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-          <h6 class="mdl-mega-footer--heading">Propaganda$</h6>
-          <ul class="mdl-mega-footer--link-list">
-            <li><a href="#">Spec</a></li>
-            <li><a href="#">Tools</a></li>
-            <li><a href="#">Resources</a></li>
-          </ul>
-        </div>
-        <div class="col s3">
-          <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-          <h6 class="mdl-mega-footer--heading">Propaganda$</h6>
-          <ul class="mdl-mega-footer--link-list">
-            <li><a href="#">How it works</a></li>
-            <li><a href="#">Patterns</a></li>
-            <li><a href="#">Usage</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Contracts</a></li>
-          </ul>
-        </div>
-        <div class="col s3">
-          <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
-          <h6 class="mdl-mega-footer--heading">Propaganda$</h6>
-          <ul class="mdl-mega-footer--link-list">
-            <li><a href="#">Questions</a></li>
-            <li><a href="#">Answers</a></li>
-            <li><a href="#">Contact us</a></li>
-          </ul>
+    <footer class="page-footer orange">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Resumo</h5>
+            <p class="grey-text text-lighten-4">Acreditamos que a oportunidade, o conhecimento e a ferramenta deve ser disponivel a todos. Felipe Boso e Yuri Salgado fundadores.</p>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Propaganda</h5>
+            <ul>
+              <li><a class="white-text" href="#!">Link 1</a></li>
+              <li><a class="white-text" href="#!">Link 2</a></li>
+              <li><a class="white-text" href="#!">Link 3</a></li>
+              <li><a class="white-text" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Propaganda</h5>
+            <ul>
+              <li><a class="white-text" href="#!">Link 1</a></li>
+              <li><a class="white-text" href="#!">Link 2</a></li>
+              <li><a class="white-text" href="#!">Link 3</a></li>
+              <li><a class="white-text" href="#!">Link 4</a></li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="footer-copyright">
-        <div class="">
-        © 2018 Copyright Text
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        <div class="container">
+          Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
         </div>
       </div>
     </footer>
-    <a href="" target="_blank" id="view-source" class="btn">View Source</a>
+    <!--  Scripts-->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script type="text/javascript">
+      var sequence = new Vue({
+      el: '#sequence',
+      data: {}
+      });
+      var history = new Vue({
+      el: '#history',
+      data: {}
+      });
+    </script>
   </body>
 </html>
