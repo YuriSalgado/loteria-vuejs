@@ -70,14 +70,14 @@
                 <tr>
                   <th>Nº Jogo</th>
                   <th>Data</th>
-                  <th v-for="i in 15">Nº {{i}}</th>
+                  <th v-for="i in 20">Nº {{i}}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="i in 10">
-                <td>{{i}}</td>
-                <td>29/09/2018</td>
-                <td v-for="i in 15" v-bind:class="{ 'purple lighten-3': i % 2 == 0 }">{{i}}</td>
+                <tr v-for="concurse in concurses">
+                <td>{{concurse.concurse}}</td>
+                <td>{{concurse.concurseDate}}</td>
+                <td v-for="i in 20" v-bind:class="{ 'purple lighten-3': i % 2 == 0 }">{{concurse['dozen'+i]}}</td>
                 </tr>
               </tbody>
             </table>
@@ -146,17 +146,30 @@
     </footer>
     <!--  Scripts-->
     <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
     <script type="text/javascript">
       var sequence = new Vue({
       el: '#sequence',
-      data: {}
+      data: {
+      	concurses: []
+      }
       });
       var history = new Vue({
       el: '#history',
-      data: {}
+			created() {
+				this.fetchData();	
+			},
+      data: {},
+			methods: {
+				fetchData() {
+					axios.get('https://luckybox-prod.herokuapp.com/luckybox/historic/list?paged=true&sort.sorted=true').then(response => { 
+							this.concurses = response.data;
+						});
+				}
+			}
       });
     </script>
   </body>
