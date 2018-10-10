@@ -70,14 +70,14 @@
                 <tr>
                   <th>Nº Jogo</th>
                   <th>Data</th>
-                  <th v-for="i in 20">Nº {{i}}</th>
+                  <th v-for="i in 15">Nº {{i}}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="concurse in concurses">
+                <tr v-for="concurse in concurses.content">
                 <td>{{concurse.concurse}}</td>
-                <td>{{concurse.concurseDate}}</td>
-                <td v-for="i in 20" v-bind:class="{ 'purple lighten-3': i % 2 == 0 }">{{concurse['dozen'+i]}}</td>
+                <td>{{concurse.concurseDate | moment}}</td>
+                <td v-for="i in 15" v-bind:class="{ 'purple lighten-3': i % 2 == 0 }">{{concurse['dozen'+i]}}</td>
                 </tr>
               </tbody>
             </table>
@@ -147,6 +147,7 @@
     <!--  Scripts-->
     <script src="https://unpkg.com/vue"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
@@ -154,7 +155,7 @@
       var sequence = new Vue({
       el: '#sequence',
       data: {
-      	concurses: []
+      	concurse: null
       }
       });
       var history = new Vue({
@@ -162,12 +163,19 @@
 			created() {
 				this.fetchData();	
 			},
-      data: {},
+      data: {
+        concurses: null
+      },
+      filters: {
+        moment: function (date) {
+          return moment(date).format('DD/MM/YYYY');
+        }
+      },
 			methods: {
 				fetchData() {
 					axios.get('https://luckybox-prod.herokuapp.com/luckybox/historic/list?paged=true&sort.sorted=true').then(response => { 
 							this.concurses = response.data;
-						});
+          });
 				}
 			}
       });
