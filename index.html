@@ -81,6 +81,13 @@
                 </tr>
               </tbody>
             </table>
+            <ul class="pagination" id="pagination-history">{{concurses.pageNumber}}
+              <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+              <li v-for="i in Math.round(concurses.totalElements / 20)" class="waves-effect">
+                <a href="#!" v-on:click="setPagination(i)">{{i}}</a>
+              </li>
+              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -158,6 +165,7 @@
       	concurse: null
       }
       });
+
       var history = new Vue({
       el: '#history',
 			created() {
@@ -173,12 +181,35 @@
       },
 			methods: {
 				fetchData() {
-					axios.get('https://luckybox-prod.herokuapp.com/luckybox/historic/list?paged=true&sort.sorted=true').then(response => { 
+					axios.get('https://luckybox-prod.herokuapp.com/luckybox/historic/list?paged=true&sort.sorted=true&pageNumber=20').then(response => { 
 							this.concurses = response.data;
           });
 				}
 			}
       });
+
+      var paginationHistory = new Vue({
+      el: '#pagination-history',
+      created() {
+        this.fetchData(); 
+      },
+      data: {
+        concurses: { pageNumber: 1 }
+      },
+      methods: {
+        fetchData() {
+          var url = 'https://luckybox-prod.herokuapp.com/luckybox/historic/list?paged=true&sort.sorted=true'
+          url += '&pageNumber='+this.concurses.pageNumber;
+          axios.get(url).then(response => {
+              this.concurses = response.data;
+          });
+        },
+        setPagination(pageNumber) {
+          this.concurses.pageNumber = pageNumber;
+          this.fetchData();
+        }
+      }
+      });      
     </script>
   </body>
 </html>
