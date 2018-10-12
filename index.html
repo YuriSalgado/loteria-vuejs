@@ -38,9 +38,9 @@
     </div>
     <div class="container">
       <div class="section">
-        <div id="sequence-page" class="row">
+        <div id="concurse" class="row">
           <div class="col s12 z-depth-6 card-panel">
-            <form class="login-form" id="sequence">
+            <form class="login-form">
               <div class="row">
                 <div class="input-field col s3" v-for="i in 15">
                   <input id="number-" type="number">
@@ -63,31 +63,29 @@
         </div>
       </div>
       <div class="section">
-        <div id="sequence-history" class="row">
+        <div id="history" class="row">
           <div class="col s12 z-depth-6 card-panel">
-            <table class="responsive-table" id="history">
+            <table class="responsive-table">
               <thead>
                 <tr>
-                  <th>Nº Jogo</th>
-                  <th>Data</th>
+                  <th v-on:click="sort('concurse')">Nº Jogo</th>
+                  <th v-on:click="sort('data')">Data</th>
                   <th v-for="i in 15">Nº {{i}}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="concurse in concurses.content">
-                <td>{{concurse.concurse}}</td>
-                <td>{{concurse.concurseDate | moment}}</td>
-                <td v-for="i in 15" v-bind:class="{ 'purple lighten-3': i % 2 == 0 }">{{concurse['dozen'+i]}}</td>
+                <tr v-for="concurse in concurses">
+                  <td>{{concurse.concurse}}</td>
+                  <td>{{concurse.concurseDate | moment}}</td>
+                  <td v-for="i in 15">{{concurse['dozen'+i]}}</td>
                 </tr>
               </tbody>
             </table>
-            <ul class="pagination" id="pagination-history">{{concurses.pageNumber}}
-              <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-              <li v-for="i in Math.round(concurses.totalElements / 20)" class="waves-effect">
-                <a href="#!" v-on:click="setPagination(i)">{{i}}</a>
-              </li>
-              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            </ul>
+            <p>
+              <button v-on:click="prevPage"><i class="material-icons">chevron_left</i></button>
+              <button v-on:click="nextPage"><i class="material-icons">chevron_right</i></button>
+            </p>
+            debug: sort={{currentSort}}, dir={{currentSortDir}}, page={{currentPage}}
           </div>
         </div>
       </div>
@@ -158,58 +156,7 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
-    <script type="text/javascript">
-      var sequence = new Vue({
-      el: '#sequence',
-      data: {
-      	concurse: null
-      }
-      });
-
-      var history = new Vue({
-      el: '#history',
-			created() {
-				this.fetchData();	
-			},
-      data: {
-        concurses: null
-      },
-      filters: {
-        moment: function (date) {
-          return moment(date).format('DD/MM/YYYY');
-        }
-      },
-			methods: {
-				fetchData() {
-					axios.get('https://luckybox-prod.herokuapp.com/luckybox/historic/list?paged=true&sort.sorted=true&pageNumber=20').then(response => { 
-							this.concurses = response.data;
-          });
-				}
-			}
-      });
-
-      var paginationHistory = new Vue({
-      el: '#pagination-history',
-      created() {
-        this.fetchData(); 
-      },
-      data: {
-        concurses: { pageNumber: 1 }
-      },
-      methods: {
-        fetchData() {
-          var url = 'https://luckybox-prod.herokuapp.com/luckybox/historic/list?paged=true&sort.sorted=true'
-          url += '&pageNumber='+this.concurses.pageNumber;
-          axios.get(url).then(response => {
-              this.concurses = response.data;
-          });
-        },
-        setPagination(pageNumber) {
-          this.concurses.pageNumber = pageNumber;
-          this.fetchData();
-        }
-      }
-      });      
-    </script>
+    <script src="js/concurse.js"></script>
+    <script src="js/history.js"></script>
   </body>
 </html>
