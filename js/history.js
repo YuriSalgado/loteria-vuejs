@@ -4,7 +4,7 @@ var history = new Vue({
         concurses: [],
         currentSort: 'concurse',
         currentSortDir: 'asc',
-        pageNumber: 1,
+        page: 1,
         currentPage: 1
     },
     created: function() {
@@ -13,7 +13,7 @@ var history = new Vue({
     methods: {
     	fetchData: function() {
     		var url = 'https://luckybox-prod.herokuapp.com/luckybox/historic/list?paged=true';
-    		url += '&number=22&size=20&pageable.pageNumber='+this.currentPage;
+    		url += '&page='+this.currentPage;
         	axios.get(url)
             	.then(res => res.data)
             	.then(res => {
@@ -28,7 +28,7 @@ var history = new Vue({
             this.currentSort = s;
         },
         nextPage: function() {
-        	if ((this.currentPage * this.pageNumber) < this.concurses.length) {
+        	if ((this.currentPage * this.page) < this.concurses.length) {
         		this.currentPage++;
         		this.fetchData();
         	}
@@ -54,8 +54,8 @@ var history = new Vue({
                 if (a[this.currentSort] > b[this.currentSort]) return 1 * modifier;
                 return 0;
             }).filter((row, index) => {
-                var start = (this.currentPage - 1) * this.pageNumber;
-                var end = this.currentPage * this.pageNumber;
+                var start = (this.currentPage - 1) * this.page;
+                var end = this.currentPage * this.page;
                 if (index >= start && index < end) return true;
             });
         }
