@@ -43,8 +43,8 @@
             <form class="login-form">
               <div class="row">
                 <div class="input-field col s3" v-for="i in 15">
-                  <input id="number-" type="number">
-                  <label for="number-">Nº {{i}}</label>
+                  <input v-model="concurse['dozen'+i]" :id="'number-'+i" type="number">
+                  <label :for="'number-'+i">Nº {{i}}</label>
                 </div>
               </div>
               <div class="row">
