@@ -4,15 +4,15 @@ var bet = new Vue({
         concurses: [],
         currentSort: 'concurse',
         currentSortDir: 'asc',
-        page: 1,
-        currentPage: 1
+        page: 0,
+        currentPage: 0
     },
     created: function() {
     	this.fetchData();
     },
     methods: {
     	fetchData: function() {
-    		var url = 'https://luckybox-prod.herokuapp.com/luckybox/bet/list/LOTOFACIL';
+    		var url = 'https://luckybox-prod.herokuapp.com/luckybox/bet/list/lotofacil?paged=true';
     		url += '&page='+this.currentPage;
         	axios.get(url)
             	.then(res => res.data)

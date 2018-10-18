@@ -9,13 +9,8 @@ var concurse = new Vue({
 
     		var url = 'https://luckybox-prod.herokuapp.com/luckybox/bet/toBet';
     		var dataAddiction = {
-    			alreadyDrawn: "true",
-    			combinationId:"string",
-    			concurse: 0,
-    			concurseDate:"2018-10-12T01:35:05.186Z",
-    			concurses: 0,
-    			date:"2018-10-12T01:35:05.186Z",
-    			id: 0,
+    			concurse: Math.floor(Math.random() * 5000) + 1,
+    			concurses: 1000,
     			type:"LOTOFACIL"};
 
 			for (var attrname in dataAddiction) { 
