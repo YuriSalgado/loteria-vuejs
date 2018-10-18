@@ -46,6 +46,14 @@
                   <input v-model="concurse['dozen'+i]" :id="'number-'+i" type="number">
                   <label :for="'number-'+i">Nº {{i}}</label>
                 </div>
+                <div class="input-field col s3">
+                  <input v-model="concurse.concurse" :id="concurse" type="number">
+                  <label :for="concurse">Concurso</label>
+                </div>
+                <div class="input-field col s3">
+                  <input v-model="concurse.concurses" :id="concurses" type="number">
+                  <label :for="concurses">Teimosinha</label>
+                </div>
               </div>
               <div class="row">
                 <div class="input-field col s12 m12 l12  login-text">

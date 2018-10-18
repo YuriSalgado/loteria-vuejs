@@ -1,7 +1,10 @@
 var concurse = new Vue({
     el: '#concurse',
     data: {
-        concurse: {}
+        concurse: {
+            concurse: Math.floor(Math.random() * 5000) + 1,
+            concurses: 1
+        }
     },
     methods: {
     	saveData: function(event) {
@@ -9,10 +12,10 @@ var concurse = new Vue({
 
     		var url = 'https://luckybox-prod.herokuapp.com/luckybox/bet/toBet';
     		var dataAddiction = {
-    			concurse: Math.floor(Math.random() * 5000) + 1,
-    			concurses: 1000,
+    			/*concurse: Math.floor(Math.random() * 5000) + 1,
+    			concurses: 8,*/
     			type:"LOTOFACIL"};
-
+debugger;
 			for (var attrname in dataAddiction) { 
 				this.concurse[attrname] = dataAddiction[attrname]; 
 			}
