@@ -63,6 +63,33 @@
         </div>
       </div>
       <div class="section">
+        <div id="bet" class="row">
+          <div class="col s12 z-depth-6 card-panel">
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th v-on:click="sort('concurse')">Nº Jogo</th>
+                  <th v-on:click="sort('data')">Data</th>
+                  <th v-for="i in 15">Nº {{i}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="concurse in concurses">
+                  <td>{{concurse.concurse}}</td>
+                  <td>{{concurse.concurseDate | moment}}</td>
+                  <td v-for="i in 15">{{concurse['dozen'+i]}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              <button v-on:click="prevPage"><i class="material-icons">chevron_left</i></button>
+              <button v-on:click="nextPage"><i class="material-icons">chevron_right</i></button>
+            </p>
+            debug: sort={{currentSort}}, dir={{currentSortDir}}, page={{currentPage}}
+          </div>
+        </div>
+      </div>
+      <div class="section">
         <div id="history" class="row">
           <div class="col s12 z-depth-6 card-panel">
             <table class="responsive-table">
@@ -158,5 +185,6 @@
     <script src="js/init.js"></script>
     <script src="js/concurse.js"></script>
     <script src="js/history.js"></script>
+    <script src="js/bet.js"></script>
   </body>
 </html>
