@@ -12,7 +12,7 @@ var bet = new Vue({
     },
     methods: {
     	fetchData: function() {
-    		var url = 'https://luckybox-prod.herokuapp.com/luckybox/bet/list/lotofacil?paged=true';
+    		var url = 'https://luckybox-prod.herokuapp.com/luckybox/bet/list/lotofacil?paged=true&sort=creationDate,desc';
     		url += '&page='+this.currentPage;
         	axios.get(url)
             	.then(res => res.data)

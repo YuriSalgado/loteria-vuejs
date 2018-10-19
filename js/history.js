@@ -12,7 +12,7 @@ var history = new Vue({
     },
     methods: {
     	fetchData: function() {
-    		var url = 'https://luckybox-prod.herokuapp.com/luckybox/historic/list?paged=true';
+    		var url = 'https://luckybox-prod.herokuapp.com/luckybox/historic/list?paged=true&sort=concurse,desc';
     		url += '&page='+this.currentPage;
         	axios.get(url)
             	.then(res => res.data)
