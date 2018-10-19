@@ -47,12 +47,20 @@
                   <label :for="'number-'+i">Nº {{i}}</label>
                 </div>
                 <div class="input-field col s3">
-                  <input v-model="concurse.concurse" :id="concurse" type="number">
-                  <label :for="concurse">Concurso</label>
+                  <input v-model="concurse.concurse" id="concurse" type="number">
+                  <label for="concurse">Concurso</label>
                 </div>
                 <div class="input-field col s3">
-                  <input v-model="concurse.concurses" :id="concurses" type="number">
-                  <label :for="concurses">Teimosinha</label>
+                  <input v-model="concurse.concurses" id="concurses" type="number">
+                  <label for="concurses">Teimosinha</label>
+                </div>
+                <div class="input-field col s3">
+                  <select v-model="concurse.type">
+                    <option value="LOTOFACIL">LOTOFÁCIL</option>
+                    <option value="QUINA">QUINA</option>
+                    <option value="LOTOMANIA">LOTOMANIA</option>
+                  </select>
+                  <label>Materialize Select</label>
                 </div>
               </div>
               <div class="row">
@@ -78,6 +86,7 @@
                 <tr>
                   <th v-on:click="sort('concurse')">Nº Jogo</th>
                   <th v-on:click="sort('data')">Data</th>
+                  <th v-on:click="sort('hits')">Hits</th>
                   <th v-for="i in 15">Nº {{i}}</th>
                 </tr>
               </thead>
@@ -85,6 +94,7 @@
                 <tr v-for="concurse in concurses">
                   <td>{{concurse.concurse}}</td>
                   <td>{{concurse.concurseDate | moment}}</td>
+                  <td>{{concurse.hits}}</td>
                   <td v-for="i in 15">{{concurse['dozen'+i]}}</td>
                 </tr>
               </tbody>
