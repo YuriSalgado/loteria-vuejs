@@ -5,6 +5,11 @@ var concurse = new Vue({
             concurse: Math.floor(Math.random() * 5000) + 1,
             concurses: 1,
             type: "LOTOFACIL"
+        },
+        concurseTypeTotal: {
+            QUINA: 5, 
+            LOTOMANIA: 50, 
+            LOTOFACIL: 15
         }
     },
     methods: {
@@ -17,6 +22,6 @@ var concurse = new Vue({
             });
 
             event.preventDefault();
-    	},
+    	}
     }
 });

@@ -42,7 +42,7 @@
           <div class="col s12 z-depth-6 card-panel">
             <form class="login-form" v-on:submit="saveData" action="#" method="post">
               <div class="row">
-                <div class="input-field col s3" v-for="i in 15">
+                <div class="input-field col s3" v-for="i in concurseTypeTotal[concurse.type]">
                   <input v-model="concurse['dozen'+i]" :id="'number-'+i" type="number">
                   <label :for="'number-'+i">Nº {{i}}</label>
                 </div>
@@ -87,6 +87,7 @@
                   <th v-on:click="sort('concurse')">Nº Jogo</th>
                   <th v-on:click="sort('data')">Data</th>
                   <th v-on:click="sort('hits')">Hits</th>
+                  <th v-on:click="sort('statistic')">Statistic</th>
                   <th v-for="i in 15">Nº {{i}}</th>
                 </tr>
               </thead>
@@ -95,6 +96,27 @@
                   <td>{{concurse.concurse}}</td>
                   <td>{{concurse.concurseDate | moment}}</td>
                   <td>{{concurse.hits}}</td>
+                  <td>
+                    :hover
+                    <div class="view">
+                      <span>"minSum": 133</span>
+                      <span>"maxSum": 247</span>
+                      <span>"minFibonacci": 1</span>
+                      <span>"maxFibonacci": 7</span>
+                      <span>"minFibonacciPrime": 0</span>
+                      <span>"maxFibonacciPrime": 4</span>
+                      <span>"minGreatherSequence": 2</span>
+                      <span>"maxGreatherSequence": 14</span>
+                      <span>"minPrime": 2</span>
+                      <span>"maxPrime": 9</span>
+                      <span>"minPair": 3</span>
+                      <span>"maxPair": 11</span>
+                      <span>"minDozensLastRaffle": null</span>
+                      <span>"maxDozensLastRaffle": null</span>
+                      <span>"minSequence": 1</span>
+                      <span>"maxSequence": 7</span>
+                    </div>
+                  </td>
                   <td v-for="i in 15">{{concurse['dozen'+i]}}</td>
                 </tr>
               </tbody>

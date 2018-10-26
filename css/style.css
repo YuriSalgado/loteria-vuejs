@@ -7,8 +7,11 @@
  */
 
 .icon-block {
-  padding: 0 15px;
+	padding: 0 15px;
 }
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
+#bet table tr td .view { display:none;}
+#bet table tr td:hover .view { display:inline-block;}
